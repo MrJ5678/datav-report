@@ -1,13 +1,79 @@
 <template>
-  <div>map view</div>
+  <div class="map-view">
+    <div class="left">
+      <el-card shadow="hover" :body-style="{padding: '0', height: '100%'}">
+        <b-map-scatter/>
+      </el-card>
+    </div>
+    <div class="right">
+      <el-card shadow="hover">
+        <template v-slot:header>
+          <div class="title">用户月同比增长</div>
+        </template>
+        <template>
+          <div class="chart-wrapper">
+            <liquid-fill />
+          </div>
+        </template>
+      </el-card>
+      <el-card shadow="hover">
+        <template v-slot:header>
+          <div class="title">热门搜索</div>
+        </template>
+        <template>
+          <div class="chart-wrapper">
+            <word-cloud />
+          </div>
+        </template>
+      </el-card>
+    </div>
+  </div>
 </template>
 
 <script>
+import BMapScatter from '@/components/BMapScatter/index'
+import LiquidFill from '@/components/LiquidFill/index'
+import WordCloud from '@/components/WordCloud/index'
+
 export default {
-  name: 'index'
+  name: 'index',
+  components: { BMapScatter, LiquidFill, WordCloud }
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+.map-view {
+  display: flex;
+  margin-top: 20px;
+  .left {
+    flex: 0 0 80%;
+    width: 80%;
+    height: 600px;
+    background-color: #fff;
+    .el-card {
+      height: 100%;
+    }
+  }
+  .right {
+    margin-left: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title {
+      display: flex;
+      align-items: center;
+      height: 60px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 0 0 0 20px;
+    }
+    .chart-wrapper {
+      width: 100%;
+      height: 190px;
+    }
+  }
+}
 </style>
