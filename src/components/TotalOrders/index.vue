@@ -5,7 +5,7 @@
   >
     <template>
       <v-chart :options="getOptions()"/>
-<!--      <div id="total-order-chart" :style="{width: '100%', height: '100%'}"/>-->
+      <!--      <div id="total-order-chart" :style="{width: '100%', height: '100%'}"/>-->
     </template>
     <template v-slot:footer>
       <span>昨日订单量 </span>

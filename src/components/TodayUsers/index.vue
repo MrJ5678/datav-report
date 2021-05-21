@@ -23,8 +23,10 @@ export default {
     getOptions() {
       return {
         color: ['#3398db'],
+        tooltip: {},
         series: [{
           type: 'bar',
+          name: '用户实时交易量',
           data: [410, 82, 200, 334, 390, 330, 220, 150, 82, 200, 134, 290, 330, 150],
           barWidth: '60%'
         }],
